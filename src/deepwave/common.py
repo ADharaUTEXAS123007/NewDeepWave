@@ -606,6 +606,9 @@ def check_locations_are_within_model(
             if location.min() < 0:
                 raise RuntimeError("Locations must be >= 0.")
             for dim, model_dim_shape in enumerate(model_shape):
+                print("location dim max :",location[..., dim].max() )
+                print("model dim shape :", model_dim_shape)
+
                 if location[..., dim].max() >= model_dim_shape:
                     raise RuntimeError("Locations must be within model.")
 
