@@ -601,6 +601,8 @@ def check_locations_are_within_model(
             model_shape: List[int],
             locations: List[Optional[Tensor]]
         ) -> None:
+    print("location :", locations)
+    print("model_shape :", model_shape)
     for location in locations:
         if location is not None:
             if location.min() < 0:
