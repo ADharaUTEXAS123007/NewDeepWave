@@ -1,0 +1,33 @@
+# IPython log file
+
+# Sun, 03 Oct 2021 08:05:26
+# General info
+# using Adam Optimization
+# Shuffling sources every epoch
+# SCHUSTER's MARMOUSI MODEL
+
+# General parameters
+GPU=0     # which GPU to use
+plot=False # Plot Intermediate results
+sigma=30   # Initial model smoothness  
+
+# Inversion parameters
+num_batches = 32
+num_epochs = 1
+
+#gamma = 300  # Does not apply, Adam uses lr (learning rate) instead of gamma
+# Adam learning rate
+lr = 4
+
+# Modeling parameters
+freq = 14
+dx = 10
+dt = 0.001
+nt = 4001
+num_shots = 32
+num_receivers_per_shot = 200
+
+# receiver_spacing = # computed below from ny,dx and num_receivers_per_shot
+
+# Close the ouput.txt file with saved parameters
+%logstop 

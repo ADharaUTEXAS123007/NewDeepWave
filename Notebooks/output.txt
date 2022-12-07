@@ -1,0 +1,39 @@
+# IPython log file
+
+# Wed, 07 Dec 2022 04:05:47
+def plot_acquisition(v, src=None, rec=None, title='', **kwargs):
+    nx=200; nz=151; dx=10; par = {'extent': [0, nx*dx/1000, nz*dx/1000, 0], 'cmap': 'RdBu_r'}; par.update(kwargs);
+    plt.figure(figsize=(15,8)); ax = plt.gca(); ax.invert_yaxis(); im = ax.imshow(v/1000, **par); plt.title(title); plt.xlabel('km'); plt.ylabel('km'); 
+    if src is not None: plt.scatter(src/1000, 100*np.ones((len(src),1))/1000, 75, color='m'); 
+    if rec is not None: plt.scatter(rec/1000, 100*np.ones((len(rec),1))/1000, 3, color='w'); 
+    divider = make_axes_locatable(ax); cax = divider.append_axes("right", size="5%", pad=0.05); plt.colorbar(im, cax=cax, label='km/s'); plt.pause# Wed, 07 Dec 2022 04:05:48
+# General info
+# using Adam Optimization
+# Shuffling sources every epoch
+# SCHUSTER's MARMOUSI MODEL
+
+# General parameters
+GPU=2     # which GPU to use
+plot=False # Plot Intermediate results
+sigma=5.0   # Initial model smoothness  
+
+# Inversion parameters
+num_batches = 2
+num_epochs = 5000
+
+#gamma = 300  # Does not apply, Adam uses lr (learning rate) instead of gamma
+# Adam learning rate
+lr = 4
+
+# Modeling parameters
+freq = 8
+dx = 10
+dt = 0.001
+nt = 4001
+num_shots = 18
+num_receivers_per_shot = 200
+
+# receiver_spacing = # computed below from ny,dx and num_receivers_per_shot
+
+# Close the ouput.txt file with saved parameters
+%logstop 
